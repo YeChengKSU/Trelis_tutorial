@@ -1,0 +1,14 @@
+import mcnp "/home/ye/Desktop/Trelis/test/test_all/mcnp/mcnp_inp"
+delete Volume 6
+delete Volume 73
+webcut body 78  with sheet extended from surface 280  
+webcut body 78  with sheet extended from surface 279
+webcut body 72 69 75  with plane xplane offset 0
+imprint volume all 
+merge volume all 
+volume all size 0.1
+mesh volume all
+sideset 1 add surface 371 368 362 373 369 364 257 372 363 367 366 374 258 365
+set exodus netcdf4 off
+set large exodus file on
+export mesh "/home/ye/Desktop/Trelis/test/test_all/single_element_finer.e" overwrite   
