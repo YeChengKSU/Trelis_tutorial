@@ -1,2 +1,2 @@
 # Trelis_tutorial
-This is a repository containing Trelis tutorial for NEAMS group meeting
+This is a repository containing Trelis tutorial for CORPS-G group meeting
