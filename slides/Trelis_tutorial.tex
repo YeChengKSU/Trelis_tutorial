@@ -81,12 +81,8 @@
                     \item MCNP plugin installation
                 \end{itemize}
                 \item Simple meshing instruction
-                \begin{itemize}
-                 \item Trelis syntax
-                 \item Python in Trelis
-                \end{itemize}
-                \item Meshing
                 \item Decomposition
+                \item ITEM tool
                 \item examples
 		  \begin{itemize}
 		   \item single pin element meshing
@@ -189,8 +185,36 @@ The detailed Trelis-fixing instruction can be found in \textbf{installation\_gui
 \end{columns}
 
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Decomposition}
+\begin{frame}
+\frametitle{sweepable model}
+\begin{block}{What volume is sweepable}
+ Sweepable volumes can be comprised of many
+different topologies. We typically classify sweeping problems into three groups, based on the number of
+source/target surfaces.
+\begin{itemize}
+ \item One-to-one: A volume with a one source surface and one target surface.
+ \item Many-to-one: A volume with multiple source surfaces and one target surface
+ \item Multisweep (or Many-to-Many): A volume with multiple target surfaces
+\end{itemize}
+\end{block}
+\end{frame}
 
-
+\begin{frame}
+ \frametitle{sweepable model}
+ \begin{columns}[t]
+\column{.33\textwidth}
+\centering
+\includegraphics[width=4cm,height=3cm]{figures/one_to_one.png}\\{One to one}
+\column{.33\textwidth}
+\centering
+\includegraphics[width=4cm,height=3cm]{figures/many_to_one.png}\\{Many to one}
+\column{.33\textwidth}
+\centering
+\includegraphics[width=4cm,height=3cm]{figures/many_to_many.png}\\{Many to many}
+\end{columns}
+\end{frame}
 
 
 
@@ -204,171 +228,4 @@ The detailed Trelis-fixing instruction can be found in \textbf{installation\_gui
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-    \section{Section 1}
-    
-    \begin{frame}
-        \frametitle{Title of the Slide}
-        Here is some Slide content.
-        
-        You can do many things with the slides.
-        
-        Over the next couple slides I will demonstrate some different kinds of slides.
-    \end{frame}
-    
-    \section{Different Slides} % new section title
-    \begin{frame}
-        \frametitle{Column Slide}
-        This is how to make a 2 column slide
-        \begin{columns}[c]
-            \begin{column}{0.5\textwidth} % split the columns 50/50
-                \begin{block}{Block Title}
-                    \begin{itemize}
-                        \item Some list of things
-                        \item More things
-                    \end{itemize}
-                \end{block}
-            \end{column}
-            
-            \begin{column}{0.5\textwidth} % Other half of the column split
-                Here is an equation
-                \begin{equation}
-                    \mathcal{T} \phi(\bm{\rho}) = \frac{1}{k} \mathcal{F} \phi(\bm{\rho}) \, , \nonumber
-                \end{equation}
-                where $\bm{\rho}$ contains the relevant phase space (i.e., $\mathbf{r}$, $E$, and $\Omega$).
-            \end{column}
-        \end{columns}
-    \end{frame}
-    
-    \begin{frame} % This is a slide with a picture created by tikz
-        \frametitle{Picture Slide}
-        \begin{block}{Pin Cell Mesh}
-            \begin{itemize}
-                \item 22 mesh cells of fuel 
-                \item 3 mesh cells of moderator on either side
-                \item Each pin cell provides 28 energy-dependent snapshots
-            \end{itemize}
-        \end{block}
-        \begin{center}
-            \begin{figure} % Here you can use any figure
-                % Now create a figure with tikz
-                \begin{tikzpicture}[scale=0.6, every node/.style={scale=0.6}]
-                    \foreach \x in {0,1.5,...,6}
-                    \filldraw[xshift=\x cm, fill=green!20!white, draw=black] (0.160714286,0) rectangle (1.339285714,2.5) node[pos=.5] {UO$_2$};
-                    \foreach \x in {7.5,9,...,13.5}
-                    \filldraw[xshift=\x cm, fill=red!20!white, draw=black] (0.160714286,0) rectangle (1.339285714,2.5) node[pos=.5] {MOX};
-                    \foreach \x in {0,1.5,...,13.5}
-                    \filldraw[xshift=\x cm, fill=blue!20!white, draw=black] (0,0) rectangle (0.160714286,2.5);
-                    \foreach \x in {0,1.5,...,13.5}
-                    \filldraw[xshift=\x cm, fill=blue!20!white, draw=black] (1.339285714,0) rectangle (1.5,2.5);
-                    \draw[xshift=15cm,yshift=1.25cm] node[right] {\rotatebox{-90}{Reflect}};
-                    \draw[yshift=1.25cm] node[left] {\rotatebox{90}{Reflect}};
-                    \draw (1.5,-.15) -- (1.5,-.45) -- (1.5,-.30) node[left] {0.10 cm} -- (1.660714286,-.30) -- (1.660714286,-.15) -- (1.660714286, -.45);
-                    \draw (3.160714286,-.15) -- (3.160714286,-.45) -- (3.160714286,-.30) -- (4.339285714,-.30) node[right] {1.18 cm} -- (4.339285714,-.15) -- (4.339285714, -.45);
-                \end{tikzpicture}
-            \end{figure}
-        \end{center}
-        \begin{block}{Test Problem Settings}
-            \begin{itemize}
-                \item 16-angle, double Gauss-Legendre quadrature
-                \item Step characteristics spatial discretization
-            \end{itemize}
-        \end{block}
-    \end{frame}
-    
-    \begin{frame}
-        % This is a frame with a table in it
-        \frametitle{Table Slide}
-        \begin{table}
-            \begin{tabular}{l | p{7cm}}\toprule
-                Abbreviation    & Model to generate snapshots \\ 
-                \hline
-                MOX Pin         & MOX pin only \\
-                UO$_2$ Pin      & UO$_2$ pin only \\
-                Combined Pins  & 1 UO$_2$ pin, 1 MOX pin, Pin Junction modeled separately then combined \\
-                N pin           & Repeating array of N UO$_2$ and N MOX pin \\
-                \bottomrule
-            \end{tabular}
-            \label{tab:snapshots}
-        \end{table}
-    \end{frame}
-    
-    \begin{frame}
-        \frametitle{Frame with Blocks}
-        \begin{block}{The Karhunen Lo\'{e}ve Transform :}
-            \begin{itemize}
-                \item Shows improvement over mDLP
-                \item Reduces DOF needed for accurate results
-                \item Generally improves with increased information
-                \item Achieves sub $0.1\%$ error with $<1/10$ DOF
-            \end{itemize}
-        \end{block}
-        \begin{block}{Future Work}
-            \begin{itemize}
-                \item Expanding to 2D
-                \item KLT on spatial variable
-                \item Test basis functions using 1 group of snapshots
-            \end{itemize}
-        \end{block}
-        \begin{block}{Contact Information}
-            \begin{itemize}
-                \item Your Name: Your email
-                \item Dr. Jeremy Roberts: jaroberts@k-state.edu
-            \end{itemize}
-        \end{block}
-        
-        % This line allows a reference slide without citing references
-        \nocite{*}
-    \end{frame}
-    
-%     \defverbatim[colored]\helloworld{
-%         \begin{pythoncode}
-%             
-%             # We will make our first program!
-%             print 'Hello World!'
-%             
-%             
-%         \end{pythoncode}
-%     }
-%     \begin{frame}
-%         \frametitle{Your First Program}
-%         In programming some version of this is often the first program
-%         \helloworld
-%         This will print the string: 
-%         
-%         Hello World!
-%     \end{frame}
-    
-    \section{References}
-    
-    \begin{frame}[t,allowframebreaks]\label{lastframe}
-        \frametitle{References}
-        \bibliographystyle{ans}
-        % make a bibliography.bib file with your references in it
-        \bibliography{bibliography}
-    \end{frame}
-    
-    \beginbackup % begins the non-numbered slides
-    
-    \begin{frame}[noframenumbering]
-        \frametitle{no frame number slide}
-        \begin{center}
-            Some words and test figure
-            \includegraphics[trim=.1cm .25cm 2.0cm .4cm, clip=true, totalheight=.8\textheight]{sample_figure}
-        \end{center}
-    \end{frame}
-    
-    \backupend % Ends the non-numbered slides
-    
 \end{document}
