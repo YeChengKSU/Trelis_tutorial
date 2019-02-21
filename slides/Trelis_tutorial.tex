@@ -27,7 +27,7 @@
 % The title of the presentation:
 %  - first a short version which is visible at the bottom of each slide;
 %  - second the full title shown on the title slide;
-\title[Short Title]{
+\title[Trelis Tutorial]{
     Trelis Tutorial}
 
 % Optional: a subtitle to be displayed on the title slide
@@ -36,7 +36,7 @@
 % The author(s) of the presentation:
 %  - again first a short version to be displayed at the bottom;
 %  - next the full list of authors, which may include contact information;
-\author[Your Name]{
+\author[Ye Cheng]{
     Ye Cheng}
 
 % The institute:
@@ -50,7 +50,7 @@
 % Add a date and possibly the name of the event to the slides
 %  - again first a short version to be shown at the bottom of each slide
 %  - second the full date and event name for the title slide
-\date[Short Version]{
+\date[CORPS-G]{
     CORPS-G Group Meeting \\
     02/22/2019}
 
@@ -97,6 +97,69 @@
         \end{block}
     \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+\section{Installation}
+\begin{frame}
+ \frametitle{Install Trelis}
+ \begin{itemize}
+ \item Request Trelis Trial or license on \textbf{www.csimsoft.com}.
+ \item The latest Trelis version is 16.3.5.
+ \item Install the Trelis package on your machine.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Install Trelis mcnp-plugin}
+\begin{block}{What is Trelis mcnp-plugin}
+\begin{itemize}
+ \item MCNP2CAD  is a program developed by CNERG from University of Wisconsin to extract the geomtery from MCNP input files and write it out
+to a Trelis/Cubit CAD file.
+ \item The workflow is: MCNP6 script $\rightarrow$ Trelis MCNP2CAD plugin $\rightarrow$ Trelis CAD file $\rightarrow$ Trelis meshing $\rightarrow$ Further transport code model(Proteus, Rattlesnake, Mammoth, etc). 
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Install Trelis mcnp-plugin(Cont.)}
+\begin{itemize}
+\item Download from MCNP2CAD Github repo: \textbf{https://github.com/svalinn/mcnp2cad}. Alternatively, follow the instruction in \textbf{installation\_guide/Trelis\_installation\_instruction}.
+ \item There could be package dependency problems causing the mcnp-plugin not able to be loaded. Typically there should be two:
+ \begin{itemize}
+  \item  \textbf{libMOAB.so.0} is not found because that the \textbf{LD\_LIBRARY\_PATH} has not been set in new user's \textbf{bashrc} file
+  \item textbf{libarmadillo.so.6} is not found because the package \textbf{libarmadillo-dev}, on which Trelis-plugins have a dependence, has not been
+   installed on new user's computer
+ \end{itemize}
+
+The detailed Trelis-fixing instruction can be found in \textbf{installation\_guide/fixing\_mcnp2cad}.
+\end{itemize}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
     \section{Section 1}
     
     \begin{frame}
