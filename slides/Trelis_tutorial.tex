@@ -1,5 +1,4 @@
 \documentclass[fleqn]{beamer}
-
 \usepackage[british]{babel}
 \usepackage{graphicx,ru,url}
 \usepackage{amsmath}
@@ -202,7 +201,7 @@ source/target surfaces.
 \end{frame}
 
 \begin{frame}
- \frametitle{sweepable model}
+ \frametitle{sweepable model(cont.)}
  \begin{columns}[t]
 \column{.33\textwidth}
 \centering
@@ -216,16 +215,98 @@ source/target surfaces.
 \end{columns}
 \end{frame}
 
+\begin{frame}
+\frametitle{General Principles to follow when decomposing a mode}
+ \begin{itemize}
+  \item Select your sweet path
+  \item Use as few webcuts as possible
+  \item Set the source and target surfaces
+  \item Swept surface meshes can be extruded through a volume which is rotated or translated.
+However, if the translation/rotation is severe then the quality of the resulting mesh may be
+poor.
+\item A volume with multiple target surfaces and a single source surface can sometimes be inverted
+and handled as a many-to-one sweepable volume. Otherwise, it is treated as a multisweep
+problem.
+\end{itemize}
+\end{frame}
 
 
-
-
-
-
-
-
-
-
+  \begin{frame}
+ \frametitle{Decomposition example(cont.)}
+ \begin{columns}[t]
+ \column{.5\textwidth}
+ \centering
+ \includegraphics[width=5cm,height=4cm]{figures/decomp_exterior.png}\\{Exterior look}
+ \column{.33\textwidth}
+ \centering
+ \includegraphics[width=5cm,height=4cm]{figures/decomp_interior.png}\\{Interior lookz}
+ \end{columns}
+ \end{frame}
+ 
+  \begin{frame}
+ \frametitle{Decomposition example(cont.)}
+ \centering{Source}
+ \begin{columns}[t]
+ \column{.2\textwidth}
+ \centering
+ \includegraphics[width=2.5cm,height=1.5cm]{figures/s1.png}\\
+ \includegraphics[width=2.5cm,height=1.5cm]{figures/t1.png}\\
+  \column{.2\textwidth}
+ \centering
+ \includegraphics[width=2.5cm,height=1.5cm]{figures/s2.png}\\
+ \includegraphics[width=2.5cm,height=1.5cm]{figures/t2.png}\\
+  \column{.2\textwidth}
+ \centering
+ \includegraphics[width=2.5cm,height=1.5cm]{figures/s3.png}\\
+ \includegraphics[width=2.5cm,height=1.5cm]{figures/t3.png}\\
+  \column{.2\textwidth}
+ \centering
+ \includegraphics[width=2.5cm,height=1.5cm]{figures/s4.png}\\
+ \includegraphics[width=2.5cm,height=1.5cm]{figures/t4.png}\\
+  \column{.2\textwidth}
+ \centering
+ \includegraphics[width=2.5cm,height=1.5cm]{figures/s5.png}\\
+ \includegraphics[width=2.5cm,height=1.5cm]{figures/t5.png}\\
+ \end{columns}
+ \centering{Target}
+ \end{frame} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Example}
+\begin{frame}
+ \frametitle {UWNR single pin model}
+ \begin{itemize}
+  \item Load from MCNP file
+  \item Remove redundant volumes
+  \item Try to identify sweepable volumes and unsweepable volumes
+  \item Decomposing the volumes
+  \item Mesh the single pin model
+  \item export as Exodus file for further usage.
+ \end{itemize}
+ \end{frame}
+ 
+  \begin{frame}
+ \frametitle{UWNR single pin model(cont.)}
+ \begin{columns}[t]
+ \column{.5\textwidth}
+ \centering
+ \includegraphics[width=5cm,height=4cm]{figures/single_element_meshing.png}\\{Single element meshing}
+ \column{.5\textwidth}
+ \centering
+ \includegraphics[width=5cm,height=4cm]{figures/single_element_mesh_quality.png}\\{Meshing quality}
+ \end{columns}
+ \end{frame}
+
+ \begin{frame}
+ \frametitle{UWNR bare core}
+ \begin{columns}[t]
+ \column{.5\textwidth}
+ \centering
+ \includegraphics[width=5cm,height=4cm]{figures/bare_core_mesh.png}\\{Single element meshing}
+ \column{.5\textwidth}
+ \centering
+ \includegraphics[width=5cm,height=4cm]{figures/bare_core_mesh_quality.png}\\{Meshing quality}
+ \end{columns}
+ \end{frame}
+
 \end{document}
