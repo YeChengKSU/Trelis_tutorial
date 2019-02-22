@@ -1,0 +1,35 @@
+brick x 10 
+create Cylinder height 12 radius 3 
+subtract volume 2  from volume 1  
+imprint volume 1  
+merge volume 1  
+volume 1 size .4
+mesh volume 1
+quality volume 1  shape global draw mesh
+delete mesh volume 1 propagate
+curve 16  size .2
+curve 16  scheme equal
+mesh curve 16 
+display
+surface 11 size .2
+mesh surface 11
+volume 1  size .2
+mesh volume 1 
+quality volume 1 shape global draw mesh
+
+
+new
+brick x 10 
+create Cylinder height 12 radius 3 
+imprint volume all 
+merge volume all 
+create material "water" property_group "CUBIT-FEA" description "reactor coolant" 
+modify material "water" scalar_properties "DENSITY" 1 
+create material "fuel" property_group "CUBIT-FEA" description "TRIGA fuel" 
+modify material "fuel" scalar_properties "DENSITY" 7.2 
+block 1 add volume 1 
+block 2 add volume 2
+list Block 1
+list Block 2
+sideset 1 add surface 9 16 10 6 5 4 3 11 14 8  
+
