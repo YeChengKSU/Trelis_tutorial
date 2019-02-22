@@ -1,4 +1,4 @@
-import mcnp "/home/ye/Desktop/Trelis/test/test_all/mcnp/mcnp_inp"
+import mcnp "/home/ye/Desktop/UWNR_Modeling/Trelis_tutorial/Trelis_tutorial/Trelis_files/simple_example/mcnp_inp"
 delete Volume 6
 delete Volume 73
 webcut body 78  with sheet extended from surface 280  
