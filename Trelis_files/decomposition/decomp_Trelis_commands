@@ -1,0 +1,12 @@
+import acis "/home/ye/Desktop/UWNR_Modeling/Trelis_tutorial/Trelis_tutorial/Trelis_files/decomposition/decomposition.sat" nofreesurfaces attributes_on  separate_bodies 
+webcut body 5 with sheet extended from surface 70 
+imprint volume all 
+merge volume all 
+volume all size .15
+volume all redistribute nodes off 
+volume all scheme Sweep  source surface 205    target surface 4   sweep transform least squares 
+volume all autosmooth target on  fixed imprints off  smart smooth off 
+volume all redistribute nodes off 
+volume all scheme Sweep  source surface 205    target surface 4   sweep transform least squares 
+volume all autosmooth target on  fixed imprints off  smart smooth off 
+mesh volume all
