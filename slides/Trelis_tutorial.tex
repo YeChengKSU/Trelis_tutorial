@@ -216,19 +216,19 @@ source/target surfaces.
 \end{frame}
 
 \begin{frame}
-\frametitle{General Principles to follow when decomposing a mode}
- \begin{itemize}
-  \item Select your sweet path
-  \item Use as few webcuts as possible
-  \item Set the source and target surfaces
-  \item Swept surface meshes can be extruded through a volume which is rotated or translated.
-However, if the translation/rotation is severe then the quality of the resulting mesh may be
-poor.
-\item A volume with multiple target surfaces and a single source surface can sometimes be inverted
-and handled as a many-to-one sweepable volume. Otherwise, it is treated as a multisweep
-problem.
+\frametitle{General steps of decomposition}
+\begin{itemize}
+\item Webcut
+\item Imprint \& Merge
+\item Select meshing strategy 
+\item Set the interval size
+\item Select your sweet path
+\item Use as few webcuts as possible
+\item Set the source and target surfaces
+\item View meshing quality   
 \end{itemize}
 \end{frame}
+
 
 
   \begin{frame}
